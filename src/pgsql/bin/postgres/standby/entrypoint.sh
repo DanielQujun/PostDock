@@ -6,6 +6,9 @@ wait_upstream_postgres
 if [ `ls $PGDATA/ | wc -l` != "0" ]; then
     echo ">>> Data folder is not empty $PGDATA:"
     ls -al $PGDATA
+    # add by qujun
+    echo ">>> Remove Data folder to do master_clone!!!!!!!!"
+    rm -rf $PGDATA/*
     if [[ "$CLEAN_OVER_REWIND" == "1" ]] && [[ "$MASTER_SLAVE_SWITCH" == "1" ]]; then
         echo ">>> Cleaning data folder..."
         rm -rf $PGDATA/*
